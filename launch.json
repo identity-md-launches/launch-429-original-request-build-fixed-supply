@@ -1,0 +1,22 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "StakeLaunch",
+    "symbol": "STL",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "StakeVault",
+      "constructorArgs": ["$token", "$owner", "604800"]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "LaunchToken has no constructor arguments. StakeVault uses the launch token, the policy owner, and a seven-day principal lock. Each deposit resets the depositor's entire principal lock. Owner-funded rewards stream over seven days, pro rata by stake over time. The owner may fund rewards and pause or resume deposits; there is no administrative withdrawal or rescue function. Claims and unlocked withdrawals remain available while deposits are paused. No initialization calls are required. The pool pairs with native ETH and has no hook. Publication and Sepolia deployment proceed through the admitted release pipeline."
+}
